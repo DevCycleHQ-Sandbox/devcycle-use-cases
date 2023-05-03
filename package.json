@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier . --check",
-    "prettier:fix": "prettier . --write"
+    "prettier:fix": "prettier . --write",
+    "prepare": "husky install",
+    "test": "echo no tests"
   },
   "dependencies": {
     "@types/node": "^18.16.3",
@@ -26,6 +28,17 @@
     "@typescript-eslint/parser": "^5.59.2",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "prettier": "^2.8.8"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "prettier --write .",
+      "eslint --fix ."
+    ],
+    "*.{json,md,yaml}": [
+      "prettier --write ."
+    ]
   }
 }
