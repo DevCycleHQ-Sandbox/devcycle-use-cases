@@ -16,6 +16,7 @@
     "@auth0/nextjs-auth0": "^2.5.0",
     "@chakra-ui/next-js": "^2.1.3",
     "@chakra-ui/react": "^2.6.0",
+    "@devcycle/devcycle-react-sdk": "^1.9.2",
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
     "@types/node": "^18.16.3",

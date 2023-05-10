@@ -34,6 +34,7 @@ import {
 } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/next-js';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { useVariableValue } from '@devcycle/devcycle-react-sdk';
 
 export default function RootTemplate({
   children
@@ -191,6 +192,8 @@ interface MobileProps extends FlexProps {
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   const { user, error, isLoading } = useUser();
 
+  const showProfilePage = useVariableValue('profile-page', false);
+
   const bgColorModeValue = useColorModeValue('white', 'gray.900');
   const borderColorModeValue = useColorModeValue('gray.200', 'gray.700');
 
@@ -254,6 +257,16 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                 bg={bgColorModeValue}
                 borderColor={borderColorModeValue}
               >
+                <>
+                  {showProfilePage && (
+                    <>
+                      <MenuItem as="a" href="/1-early-access/">
+                        Profile
+                      </MenuItem>
+                      <MenuDivider />
+                    </>
+                  )}
+                </>
                 <MenuItem as="a" href="/api/auth/logout">
                   Sign out
                 </MenuItem>
