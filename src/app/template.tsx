@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 
 import { FiHome, FiMenu, FiChevronDown } from 'react-icons/fi';
 import { IconType } from 'react-icons';
@@ -34,7 +34,7 @@ import {
 } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/next-js';
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { useVariableValue } from '@devcycle/devcycle-react-sdk';
+import { useVariableValue, useDVCClient } from '@devcycle/devcycle-react-sdk';
 
 export default function RootTemplate({
   children
@@ -193,6 +193,16 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   const { user, error, isLoading } = useUser();
 
   const showProfilePage = useVariableValue('profile-page', false);
+
+  const dvcClient = useDVCClient();
+
+  useEffect(() => {
+    if (user?.email) {
+      dvcClient
+        .identifyUser({ email: user.email })
+        .then((variables) => console.log('Updated Variables:', variables));
+    }
+  }, [dvcClient, user]);
 
   const bgColorModeValue = useColorModeValue('white', 'gray.900');
   const borderColorModeValue = useColorModeValue('gray.200', 'gray.700');
