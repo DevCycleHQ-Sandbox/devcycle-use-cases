@@ -16,7 +16,7 @@ Before implementing the Early Access use case, ensure you have:
 
 ## Implementation Steps
 
-Follow the steps below to implement the Early Access use case in our demo app:
+Follow the steps below to implement the Early Access use case in our demo React app:
 
 ### 1. **Configure Your Auth0 Application**
 
@@ -38,7 +38,7 @@ AUTH0_CLIENT_SECRET='{yourClientSecret}'
 
 **Create Sample Users**
 
-- Create three different users in your Auth0 Tenant by visiting the [User Management](https://manage.auth0.com/dashboard) section in the Auth0 dashboard.
+- Create three different users in your Auth0 tenant by visiting the [User Management](https://manage.auth0.com/dashboard) section in the Auth0 dashboard.
   - developer@domain1.com
   - beta@domain2.com
   - user@domain2.com
@@ -51,13 +51,13 @@ AUTH0_CLIENT_SECRET='{yourClientSecret}'
 
 - In the [DevCycle Dashboard](https://app.devcycle.com/), create a new project. Name the project some variation of _Use Cases_
 
-**Create a new Feature**
+**Create a New Feature**
 
-- In this new project, create a new Release feature (boolean) and name it _early-access_
+- In this new project, create a new `Release` feature (boolean) and name it _early-access_
 
 **Create Targeting Rules**
 
-- In the Users & Targeting rules for your Development environment, create three targeting rules (in order):
+- In the `Users & Targeting` rules for your Development environment, create three targeting rules (in order):
   - Developers: set initial _serve_ value to **Variation On**
   - Beta Users: set initial _serve_ value to **Variation Off**
   - All Users: set initial _serve_ value to **Variation Off**
@@ -75,13 +75,13 @@ NEXT_PUBLIC_DVC_SDK_KEY='{dvc_client_****}'
 
 ### 3. **Test Out Early Access Feature**
 
-- Ensure your demo application is running over at https://localhost:3000 by following the instructions in the [main README.md](./README.md) file.
-- Login as **developer@domain1.com** using the credentials you created in Step 1 and select the context menu by clicking on your profile image.
+- Ensure your demo application is running at https://localhost:3000 by following the instructions in the [main README.md](./README.md) file.
+- Login as **developer@domain1.com** using the credentials you created in Step 1, and select the context menu by clicking on your profile image.
   - If the DevCycle SDK has been successfully configured you should see the `Profile` menu item.
-- Now Login as **beta@domain2.com** using the credentials you created in Step 1 and select the context menu by clicking on your profile image.
-  - If targetting rules have been successfully configured you should not be able to see the `Profile` menu item
-- Update the targetting rule for beta users by changing the serve value to Variation On
-  - Refresh your demo app at https://localhost:3000 and the `Profile` menu item should now be visible
+- Now Login as **beta@domain2.com** using the credentials you created in Step 1, and select the context menu by clicking on your profile image.
+  - If targetting rules have been successfully configured you should not be able to see the `Profile` menu item.
+- Update the targetting rule for beta users by changing the serve value to `Variation On`
+  - Refresh your demo app at http://localhost:3000 and the `Profile` menu item should now be visible
 - Repeat the above process for **user@domain2.com**
 
 ---

@@ -24,7 +24,7 @@ To install the project, follow these steps:
 git clone https://github.com/DevCycleHQ/devcycle-use-cases.git
 ```
 
-2. Install a compatable veresion of nodejs. Current using lts/hydrogen.
+2. Install a compatible version of nodejs. Currently using `lts/hydrogen`.
 
 If you use nvm to manage your node version you can just run:
 
@@ -44,7 +44,7 @@ yarn
 
 Here are the steps for implementing the use case demos:
 
-- [Use Case 1: Early Access](/docs/early-access)
+- [Use Case 1: Early Access](/docs/early-access.md)
 
 Please note that these are links to separate Markdown files, each containing specific implementation steps for each use case.
 
