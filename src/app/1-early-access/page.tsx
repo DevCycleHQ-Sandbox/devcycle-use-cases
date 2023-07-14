@@ -1,22 +1,20 @@
 'use client';
 
-import {
-  Button,
-  Heading,
-  Image,
-  Stack,
-  Flex,
-  Text,
-  Center
-} from '@chakra-ui/react';
-import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client';
+import { Heading, Image, Stack, Flex, Text } from '@chakra-ui/react';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 const RootProfile = () => {
   const { user, isLoading } = useUser();
 
-  return isLoading ? (
-    <div>Loading</div>
-  ) : (
+  if (isLoading) {
+    return <div>Loading</div>;
+  }
+
+  if (!user) {
+    throw new Error('401');
+  }
+
+  return (
     <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
       <Flex pt={8} justify={'center'}>
         <Image
@@ -43,4 +41,4 @@ const RootProfile = () => {
   );
 };
 
-export default withPageAuthRequired(RootProfile);
+export default RootProfile;

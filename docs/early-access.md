@@ -26,7 +26,7 @@ Follow the steps below to implement the Early Access use case in our demo React 
 
 **Add keys to .env file**
 
-- In the root directory of your project, update the file .env.development with the following environment variables:
+- In the root directory of your project copy the .env.local.example file to .env.local and add the following environment variables:
 
 ```
 AUTH0_SECRET='use [openssl rand -hex 32] to generate a 32 bytes value'
@@ -65,7 +65,7 @@ AUTH0_CLIENT_SECRET='{yourClientSecret}'
 **Add SDK key to .env file**
 
 - Select the key icon (View API Keys) in the main navbar, and copy the client key for your Development Environment (it should look like dvc*client*\*\*\*\*)
-- In the root directory of your project, update the file .env.development with the following environment variables:
+- In the root directory of your project copy the .env.example file to .env and update it with the following environment variable:
 
 ```
 NEXT_PUBLIC_DVC_SDK_KEY='{dvc_client_****}'

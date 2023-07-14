@@ -76,6 +76,12 @@ To contribute to this project, follow these steps:
 
 Alternatively, see the GitHub documentation on [creating a pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
+## Configurating Gitstream
+
+If you want to run a fork of this repository with Gitstream follow their instruction on [How to Setup gitStream with GitHub](https://docs.gitstream.cm/github-installation/).
+
+Not configuring it will not have any impact upon your fork.
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.

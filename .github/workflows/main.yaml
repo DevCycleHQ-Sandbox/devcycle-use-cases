@@ -1,0 +1,29 @@
+---
+name: main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Next
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.15.0
+
+      - name: Install Node.js dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build
+        env:
+          NEXT_PUBLIC_DVC_SDK_KEY: dvc_client_xxxxxxxx_xxxx_xxxx_xxxx_xxxxxxxxxxxx_xxxxxxx
