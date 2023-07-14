@@ -26,3 +26,5 @@ jobs:
 
       - name: Build
         run: yarn build
+        env:
+          NEXT_PUBLIC_DVC_SDK_KEY: dvc_client_xxxxxxxx_xxxx_xxxx_xxxx_xxxxxxxxxxxx_xxxxxxx
