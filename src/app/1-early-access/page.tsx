@@ -3,6 +3,8 @@
 import { Heading, Image, Stack, Flex, Text } from '@chakra-ui/react';
 import { useUser } from '@auth0/nextjs-auth0/client';
 
+import { AuthRequiredError } from '../../lib/exceptions';
+
 const RootProfile = () => {
   const { user, isLoading } = useUser();
 
@@ -11,7 +13,7 @@ const RootProfile = () => {
   }
 
   if (!user) {
-    throw new Error('401');
+    throw new AuthRequiredError();
   }
 
   return (
