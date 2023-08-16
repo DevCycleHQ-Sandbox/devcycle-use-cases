@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
+  Center,
   FormControl,
   FormLabel,
   Heading,
@@ -10,6 +11,7 @@ import {
   Flex,
   Text
 } from '@chakra-ui/react';
+import { SyncLoader } from 'react-spinners';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useVariableValue, useDVCClient } from '@devcycle/devcycle-react-sdk';
 
@@ -17,18 +19,29 @@ import { AuthRequiredError } from '../../lib/exceptions';
 
 const RootUserOptIn = () => {
   const { user, isLoading } = useUser();
+  const [optIn, setOptIn] = useState<boolean>(false);
   const dvcClient = useDVCClient();
 
   useEffect(() => {
     if (user?.email) {
+      const userObj = { email: user.email, customData: { optIn } };
+      console.log({ userObj });
       dvcClient
-        .identifyUser({ email: user.email })
+        .identifyUser(userObj)
         .then((variables) => console.log('Updated Variables:', variables));
     }
-  }, [dvcClient, user]);
+  }, [dvcClient, user, optIn]);
 
   if (isLoading) {
-    return <div>Loading</div>;
+    return (
+      <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
+        <Flex>
+          <Center>
+            <SyncLoader />
+          </Center>
+        </Flex>
+      </Stack>
+    );
   }
 
   if (!user) {
@@ -37,9 +50,6 @@ const RootUserOptIn = () => {
 
   return (
     <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
-      <Flex pt={8} justify={'center'}>
-        <Text>Side</Text>
-      </Flex>
       <Flex p={8} flex={1} justify={'center'}>
         <Stack spacing={6} w={'full'} maxW={'lg'}>
           <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
@@ -47,12 +57,15 @@ const RootUserOptIn = () => {
               User OptIn
             </Text>
           </Heading>
-          <Text>Info</Text>
           <FormControl display="flex" alignItems="center">
             <FormLabel htmlFor="email-alerts" mb="0">
-              Enable email alerts?
+              User OptIn?
             </FormLabel>
-            <Switch id="email-alerts" />
+            <Switch
+              id="user-optin"
+              isChecked={optIn}
+              onChange={(e) => setOptIn(e.target.checked)}
+            />
           </FormControl>
         </Stack>
       </Flex>
