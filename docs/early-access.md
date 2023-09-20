@@ -24,7 +24,7 @@ Follow the steps below to implement the Early Access use case in our demo React 
 
 - When you signed up for Auth0, a new application was created for you, or you could have created a new one. You will need some details about that application to communicate with Auth0. You can get these details from the [Application Settings](https://manage.auth0.com/?_gl=1*1hu0jhu*_gcl_aw*R0NMLjE2ODc1NDU4NjIuQ2p3S0NBandoZFdrQmhCWkVpd0ExaWJMbVBvOWNFQ1dXQ19iQnk4MlluVkJxZkVjSTl5ZnRBSmREMDg0UU10OVIzSFpTQkh2VDdSU2R4b0NVQUlRQXZEX0J3RQ..*_gcl_au*NDc3NzMwODI0LjE2ODYyNTMwNjY.*rollup_ga*ODI3OTE5MTI0LjE2ODYyNTMwNjY.*rollup_ga_F1G3E656YZ*MTY4NzU0NTU2MS43LjEuMTY4NzU0NTk3OS42MC4wLjA.&_ga=2.206481939.1062554210.1687545561-827919124.1686253066&_gac=1.223431529.1687545862.CjwKCAjwhdWkBhBZEiwA1ibLmPo9cECWWC_bBy82YnVBqfEcI9yftAJdD084QMt9R3HZSBHvT7RSdxoCUAIQAvD_BwE#/applications) section in the Auth0 dashboard.
 
-**Add keys to .env file**
+**Add keys to .env.local file**
 
 - In the root directory of your project copy the .env.local.example file to .env.local and add the following environment variables:
 
