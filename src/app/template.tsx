@@ -2,7 +2,7 @@
 
 import React, { ReactNode, useEffect } from 'react';
 
-import { FiHome, FiMenu, FiChevronDown } from 'react-icons/fi';
+import { FiHome, FiMenu, FiChevronDown, FiGrid } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { BeatLoader } from 'react-spinners';
 
@@ -79,7 +79,8 @@ interface LinkItemProps {
   url: string;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Home', icon: FiHome, url: '/' }
+  { name: 'Home', icon: FiHome, url: '/' },
+  { name: 'Gated API', icon: FiGrid, url: '/3-gated-api' }
 ];
 
 const Sidebar = ({ children }: { children: ReactNode }) => {
