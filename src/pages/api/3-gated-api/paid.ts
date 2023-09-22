@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getSession, withApiAuthRequired } from '@auth0/nextjs-auth0';
 
-import Devcycle from '../../lib/devcycle';
+import Devcycle from '../../../lib/devcycle';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const session = await getSession(req, res);
