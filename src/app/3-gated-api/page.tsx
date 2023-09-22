@@ -31,19 +31,19 @@ const RootFeature = () => {
 
   useEffect(() => {
     axios
-      .get('/api/public')
+      .get('/api/3-gated-api/public')
       .then((res) => {
         setPub(res.data);
       })
       .catch((err: unknown) => handleError(err, setPub));
     axios
-      .get('/api/free')
+      .get('/api/3-gated-api/free')
       .then((res) => {
         setFree(res.data);
       })
       .catch((err: unknown) => handleError(err, setFree));
     axios
-      .get('/api/paid')
+      .get('/api/3-gated-api/paid')
       .then((res) => {
         setPaid(res.data);
       })
