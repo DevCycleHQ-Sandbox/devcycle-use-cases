@@ -2,7 +2,13 @@
 
 import React, { ReactNode, useEffect } from 'react';
 
-import { FiHome, FiSliders, FiMenu, FiChevronDown } from 'react-icons/fi';
+import {
+  FiHome,
+  FiSliders,
+  FiMenu,
+  FiChevronDown,
+  FiGrid
+} from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { BeatLoader } from 'react-spinners';
 
@@ -81,7 +87,8 @@ interface LinkItemProps {
 }
 const LinkItems: Array<LinkItemProps> = [
   { name: 'Home', icon: FiHome, url: '/', auth: false },
-  { name: 'User OptIn', icon: FiSliders, url: '/2-user-optin', auth: true }
+  { name: 'User OptIn', icon: FiSliders, url: '/2-user-optin', auth: true },
+  { name: 'Gated API', icon: FiGrid, url: '/3-gated-api', auth: false }
 ];
 
 const Sidebar = ({ children }: { children: ReactNode }) => {
