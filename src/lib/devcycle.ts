@@ -5,17 +5,22 @@ import {
 
 class Devcycle {
   private static devcycleClient: DevCycleClient;
-  private static initalized = false;
+  private static devcycleClientPromise: Promise<DevCycleClient> | null = null;
 
-  public static async getDevcycleClient() {
-    if (!Devcycle.initalized) {
-      Devcycle.initalized = true;
-      console.log('init devcycleClient');
-      Devcycle.devcycleClient = await initializeDevCycle(
+  private static async connect() {
+    if (!Devcycle.devcycleClientPromise) {
+      Devcycle.devcycleClientPromise = initializeDevCycle(
         process.env.DVC_SDK_KEY || ''
-      ).onClientInitialized();
+      )
+        .onClientInitialized()
+        .then((client) => (Devcycle.devcycleClient = client));
     }
 
+    return Devcycle.devcycleClientPromise;
+  }
+
+  public static async getDevcycleClient() {
+    await Devcycle.connect();
     return Devcycle.devcycleClient;
   }
 }
