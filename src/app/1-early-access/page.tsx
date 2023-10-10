@@ -1,17 +1,28 @@
 'use client';
 
-import { Heading, Image, Stack, Flex, Text } from '@chakra-ui/react';
+import { Heading, Image, Center, Stack, Flex, Text } from '@chakra-ui/react';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { SyncLoader } from 'react-spinners';
+
+import { AuthRequiredError } from '../../lib/exceptions';
 
 const RootProfile = () => {
   const { user, isLoading } = useUser();
 
   if (isLoading) {
-    return <div>Loading</div>;
+    return (
+      <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
+        <Flex>
+          <Center>
+            <SyncLoader />
+          </Center>
+        </Flex>
+      </Stack>
+    );
   }
 
   if (!user) {
-    throw new Error('401');
+    throw new AuthRequiredError();
   }
 
   return (
