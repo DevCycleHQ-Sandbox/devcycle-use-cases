@@ -43,6 +43,10 @@ AUTH0_CLIENT_SECRET='{yourClientSecret}'
   - beta@domain2.com
   - user@domain2.com
 
+**Add Localhost to Callback URLs**
+
+- Before You leave the Auth0 Dashboard, find the Application URIs section under Application Settings and add `http://localhost:3000/api/auth/callback` to the list of **_Allowed Callback URLs_**. 
+
 ---
 
 ### 2. **Configure Your DevCycle Project**
