@@ -81,11 +81,12 @@ NEXT_PUBLIC_DVC_SDK_KEY='{dvc_client_****}'
 
 ---
 
-### 3. **Test Out Early Access Feature**
+### 3. **Test Out User Opt-in**
 
 - Ensure your demo application is running at https://localhost:3000 by following the instructions in the [main README.md](./README.md) file.
-- Login as **developer@domain1.com** using the credentials you created in Step 1, and select the `User Opt-in` from the sidebar menu. Click the User Optin Toggle.
-  - If the DevCycle SDK has been successfully configured you should see confetti when the toggle is in the on position and the confetti should disappear when in the off position.
+- Login as **developer@domain1.com** using the credentials you created in Step 1, and select the `User Opt-in` from the sidebar menu.
+- Click the User Opt-in Toggle.
+  - If the DevCycle SDK has been successfully configured you should see confetti when the toggle is in the `on` position and the confetti should disappear when in the `off` position.
 
 ---
 
