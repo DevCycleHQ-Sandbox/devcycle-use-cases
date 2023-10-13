@@ -36,6 +36,8 @@ import { Link } from '@chakra-ui/next-js';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useVariableValue, useDVCClient } from '@devcycle/devcycle-react-sdk';
 
+import { MaintenaceMode } from '../components/4-maintenance-mode/';
+
 export default function RootTemplate({
   children
 }: {
@@ -43,6 +45,7 @@ export default function RootTemplate({
 }) {
   return (
     <Flex direction="column" align="center" maxW={{ xl: '1400px' }} m="0 auto">
+      <MaintenaceMode />
       <Sidebar>
         <Box minH="calc(100vh - 160px)">{children}</Box>
         <Footer />
@@ -79,7 +82,8 @@ interface LinkItemProps {
   url: string;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Home', icon: FiHome, url: '/' }
+  { name: 'Home', icon: FiHome, url: '/' },
+  { name: 'Maintenace Mode', icon: FiHome, url: '/4-maintenance-mode' }
 ];
 
 const Sidebar = ({ children }: { children: ReactNode }) => {
