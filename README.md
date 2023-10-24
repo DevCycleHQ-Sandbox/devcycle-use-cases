@@ -45,6 +45,7 @@ yarn
 Here are the steps for implementing the use case demos:
 
 - [Use Case 1: Early Access](/docs/early-access.md)
+- [Use Case 2: User Opt-in](/docs/opt-in.md)
 
 Please note that these are links to separate Markdown files, each containing specific implementation steps for each use case.
 
